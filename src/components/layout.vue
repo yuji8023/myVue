@@ -25,7 +25,7 @@
   	<div class="app-footer">
   		<p>desgin By Yuji</p>
   	</div>
-  	<my-dialog></my-dialog>
+  	<my-dialog :show-model="showLoginModel"></my-dialog>
   </div>
 </template>
 
@@ -37,7 +37,8 @@ export default {
 	},
   data () {
   	return {
-  		userName: ""
+  		userName: "",
+      showLoginModel:true
   	}
   }
 }

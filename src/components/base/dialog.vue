@@ -1,7 +1,7 @@
 <template>
-  <div class="model-shoadow">
+  <div v-if="showModel" class="model-shoadow">
     <div class="model-wrap">
-      <div class="mode-close">X</div>
+      <div class="mode-close" @click="closeModel">X</div>
       <div class="model-content">
         <solt>hello</solt>
       </div>
@@ -12,9 +12,15 @@
 <script>
 export default {
   name: 'dialog',
+  props :{
+    showModel :{
+      type: Boolean,
+      default: true
+    }
+  },
   data () {
     return {
-      msg: ''
+      
     }
   }
 }
@@ -32,18 +38,18 @@ export default {
 	z-index: 5;
 }
 .model-wrap {
-  width: 300px;
+  width: 40%;
   border: 2px solid #333;
   background: #fff;
   position: absolute;
-  left: calc(50% - 150px);
-  top: 300px;
+  left: calc(50% - 20%);
+  top: 200px;
   line-height: 1.5;
   padding: 20px 10px 10px;
 }
 .mode-close {
   position: absolute;
-  right: 5px;
+  right: 15px;
   top: 5px;
   
 }
