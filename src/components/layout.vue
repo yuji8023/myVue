@@ -8,11 +8,11 @@
   			<div class="fr">
   				<ul class="nav-list">
   					<li>{{ userName }}</li>
-  					<li v-if="userName === ''">登录</li>
+  					<li @click="login" v-if="userName === ''">登录</li>
   					<li v-if="userName !== ''">|</li>
   					<li v-if="userName !== ''">退出</li>
   					<li v-if="userName === ''">|</li>
-  					<li v-if="userName === ''">注册</li>
+  					<li @click="ceshi" v-if="userName === ''">注册</li>
   					<li>|</li>
   					<li>关于</li>
   				</ul>
@@ -29,7 +29,7 @@
   </div>
 </template>
 
-<script>
+<script type="text/babel">
 import Dialog from './base/dialog'
 export default {
 	components: {
@@ -38,8 +38,38 @@ export default {
   data () {
   	return {
   		userName: "",
-      showLoginModel:true
+      showLoginModel:false
   	}
+  },
+  methods: {
+    ceshi () {
+      this.$http.post('/api/standardized/userManage/adminList.htm',
+        {
+          "pageSize":"20",
+          "pageNum":"1",
+        }
+      ).then(response => {
+        // success callback
+        console.log(response)
+      }, response => {
+        // error callback
+        console.log(response)
+      });
+    },
+    login () {
+      this.$http.post('/api/u/login.htm',
+        {
+          "loginName":"10000006666",
+          "passwd":"8d969eef6ecad3c29a3a629280e686cf0c3f5d5a86aff3ca12020c923adc6c92"
+        }
+      ).then(response => {
+        // success callback
+        console.log(response)
+      }, response => {
+        // error callback
+        console.log(response)
+      });
+    }
   }
 }
 </script>

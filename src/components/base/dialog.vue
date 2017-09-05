@@ -15,7 +15,7 @@ export default {
   props :{
     showModel :{
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data () {
